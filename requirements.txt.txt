@@ -1,0 +1,6 @@
+chainlit
+langchain
+langchain-google-genai
+pdfplumber
+pymupdf
+chromadb
