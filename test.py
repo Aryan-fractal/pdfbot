@@ -6,7 +6,7 @@ import chainlit as cl
 from langchain.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores import Chroma
-from langchain.schema import HumanMessage, SystemMessage
+from langchain.schema.messages import HumanMessage, SystemMessage
 from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
 import pdfplumber
 import fitz
