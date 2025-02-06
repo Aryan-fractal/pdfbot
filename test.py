@@ -156,16 +156,15 @@ async def handle_chat_start():
     files = None
     while not files:
         files = await cl.AskFileMessage(
-            content=welcome_message,
+            content="Welcome! Upload a PDF to start.",
             accept=["application/pdf"],
             max_size_mb=20,
             timeout=180,
         ).send()
-        await cl.Message(content="Processing!!!").send()
+    
     file = files[0]
     file_path = os.path.join(STATIC_DIR, file.name)
-    with open(file_path, "wb") as f:
-        f.write(file.content)
+    os.rename(file.path, file_path)  # Move file instead of trying to read content
     
     await cl.Message(content=f"`{file.name}` uploaded and being processed!").send()
     
